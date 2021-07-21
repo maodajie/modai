@@ -1,0 +1,66 @@
+{include file="public/header"}
+<form class="layui-form md-addon-gray md-union-wrap" autocomplete="off">
+	<table class="layui-table" style="margin-bottom:0">
+		<tbody>
+			<tr>
+				<td>
+					<select lay-filter="collect" data-field="collect_mid">
+						<option value="">资源类型</option>
+						{maccms:foreach name=":explode(',','1,2,8,9,11')"}
+						<option value="{$vo}">{$vo|mac_get_mid_text}</option>
+						{/maccms:foreach}
+					</select>
+				</td>
+				<td>
+					<select lay-filter="collect" data-field="collect_type">
+						<option value="">接口类型</option>
+						<option value="2">JSON</option>
+						<option value="1">XML</option>
+					</select>
+				</td>
+				<td>
+					<select lay-filter="collect" data-field="collect_from">
+						<option value="">播放类型</option>
+						<option value="multiple">综合资源</option>
+						<option value="qq,youku,qiyi,sohu,letv,le,migu,bilibili,mgtv,pptv,wasu,funshion,m1905">解析资源</option>
+						<option value="m3u8">切片资源</option>
+						<option value="yun">云播资源</option>
+						<option value="{:base64_encode('&ct=1')}">下载资源</option>
+					</select>
+				</td>
+				<td>
+					<div class="md-addon-tool">
+						<input lay-verify="required" class="layui-input" type="search" placeholder="{:lang('wd')}">
+						<a lay-submit lay-filter="search" class="layui-btn md-addon-rbgo">搜索</a>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table id="collect" lay-filter="collect"></table>
+	<script type="text/html" id="toolbar">
+		<div class="layui-btn-container">
+			<a lay-event="add" class="layui-btn layui-btn-sm layui-btn-primary">添加资源</a>
+			<a lay-event="player" class="layui-btn layui-btn-sm layui-btn-primary">添加播放器</a>
+			{maccms:foreach name="$data['break']"}
+			<a lay-event="break" class="layui-btn layui-btn-sm layui-btn-danger" data-id="{$vo.id}" data-title="{$vo.title}断点采集" data-url="{$vo.url}">继续采集{$vo.title}</a>
+			{/maccms:foreach}
+		</div>
+	</script>
+	<script type="text/html" id="open">
+		<a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="set">配置</a>
+		<a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="day">当天</a>
+		<a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="week">本周</a>
+		<a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="all">全部</a>
+		<a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="time">定时</a>
+	</script>
+	<script type="text/html" id="edit">
+		<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+		<a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+	</script>
+	<script type="text/html" id="search">
+		<a class="layui-btn layui-btn-xs" lay-event="collect">采集</a>
+	</script>
+</form>
+</div>
+{include file="public/footer"}

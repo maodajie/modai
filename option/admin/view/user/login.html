@@ -1,0 +1,26 @@
+{include file="public/header"}
+<div class="md-login-wrap">
+	<div class="md-login-main">
+		<div class="md-login-boxs">
+			<h2>魔袋用户登录</h2>
+		</div>
+		<div class="md-login-boxs layui-form">
+			<div class="layui-form-item md-login-item">
+				<label class="md-login-icon layui-icon layui-icon-email"></label>
+				<input type="email" name="user_name" lay-verify="email" placeholder="邮箱" class="layui-input md-login-input">
+			</div>
+			<div class="layui-form-item md-login-item">
+				<label class="md-login-icon layui-icon layui-icon-password"></label>
+				<input type="password" name="user_pwd" lay-verify="required" placeholder="密码" class="layui-input md-login-input">
+			</div>
+			<div class="layui-form-item">
+				<button type="button" data-jump="{:mac_url('index/index')}" lay-submit lay-filter="submit" class="layui-btn layui-btn-fluid">登 录</button>
+			</div>
+			<div class="layui-form-item">
+				<a href="{:mac_url('user/findpass')}" class="md-login-left">忘记密码</a>
+				<a href="{:mac_url('user/register')}" class="md-login-right">注册账号</a>
+			</div>
+		</div>
+	</div>
+</div>
+{include file="public/footer"}

@@ -1,0 +1,30 @@
+{include file="public/header"}
+<form class="layui-form md-option-wrap">
+	<table class="layui-table">
+		<colgroup>
+			<col width="90">
+			<col width="150">
+			<col width="200">
+			<col>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>类型</th>
+				<th>记录</th>
+				<th>用户</th>
+				<th>时间</th>
+			</tr>
+		</thead>
+		<tbody>
+			{volist name="$data" id="vo"}
+			<tr>
+				<td>{$vo.ulog_title}</td>
+				<td>{$vo.ulog_points}</td>
+				<td>{$vo.user_name}</td>
+				<td>{$vo.ulog_time}</td>
+			</tr>
+			{/volist}
+		</tbody>
+	</table>
+</form>
+{include file="public/footer"}

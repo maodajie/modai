@@ -1,0 +1,18 @@
+<form class="layui-form md-option-wrap" autocomplete="off">
+	<table class="layui-table" style="margin:0">
+		<thead>
+			<tr>
+				<td>次数</td>
+				<td>价格</td>
+			</tr>
+		</thead>
+		<tbody>
+			{volist name="$data" id="vo"}
+			<tr>
+				<td>{$vo.count}</td>
+				<td><span style="color:red;font-size:18px;font-weight:bold">{$vo.price}</span>&nbsp;&nbsp;<s>&nbsp;{$vo.pricen}&nbsp;</s></td>
+			</tr>
+			{/volist}
+		</tbody>
+	</table>
+</form>

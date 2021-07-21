@@ -1,0 +1,10 @@
+<form class="layui-form">
+	<div class="md-addon-tool">
+		<select name="entry">
+			{maccms:foreach name="$entry"}
+			<option value="{$vo}" {if$mojia.config.entry==$vo} selected{/if}>{$vo}</option>
+			{/maccms:foreach}
+		</select>
+		<a lay-submit lay-filter="entry" class="layui-btn md-addon-rbgo">保 存</a>
+	</div>
+</form>

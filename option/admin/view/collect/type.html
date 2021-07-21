@@ -1,0 +1,17 @@
+<form class="layui-form">
+	<input type="hidden" name="col" value="{$param.col}">
+	<div class="md-addon-tool">
+		<select name="val">
+			<option value="">{:lang('select_type')}</option>
+			{volist name="data" id="vo"}
+			{if$vo.type_mid==$param.mid}
+			<option value="{$vo.type_id}" {if$vo.type_id==$param.val} selected{/if}>{$vo.type_name}</option>
+			{volist name="vo.child" id="ch"}
+			<option value="{$ch.type_id}" {if$ch.type_id==$param.val} selected{/if}>&nbsp;&nbsp;&nbsp;&nbsp;├&nbsp;{$ch.type_name}</option>
+			{/volist}
+			{/if}
+			{/volist}
+		</select>
+		<a lay-submit lay-filter="bind" class="layui-btn md-addon-rbgo">保 存</a>
+	</div>
+</form>

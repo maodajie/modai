@@ -1,0 +1,24 @@
+{include file="public/header"}
+<div class="layui-row ts-addon-wrap ts-image-wrap">
+	{if!$data}
+	<div class="ts-addon-erro">
+		数据获取失败，<a style="color:red;" href="javascript:location.reload();">点我刷新</a>
+	</div>
+	{/if}
+	<table class="layui-table">
+		<tbody>
+			<tr>
+				<td><a lay-submit lay-filter="save" class="layui-btn">入库</a></td>
+			</tr>
+			{maccms:foreach name="$data"}
+			<tr>
+				<td>{$vo.name}</td>
+			</tr>
+			<tr>
+				<td>{$vo.detail}</td>
+			</tr>
+			{/maccms:foreach}
+		</tbody>
+	</table>
+</div>
+{include file="public/footer"}

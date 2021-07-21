@@ -1,0 +1,4 @@
+[submodule "dev"]
+	path = dev
+	url = https://github.com/maodajie/modai-dev.git
+	ignore = all

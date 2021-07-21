@@ -1,0 +1,77 @@
+{
+  "title": "魔袋",
+  "name": "modai",
+  "version": "2021.0721.1756",
+  "description": "苹果CMS v10 魔袋工具箱",
+  "keywords": [
+    "魔袋",
+    "大橙子",
+    "毛大姐",
+    "苹果CMS",
+    "工具箱",
+    "modai",
+    "maodajie",
+    "maccms",
+    "video",
+    "player",
+    "vfed",
+    "maccms10",
+    "tools"
+  ],
+  "homepage": "http://modai.maodajie.com",
+  "repository": "git+https://github.com/maodajie/modai.git",
+  "bugs": "https://github.com/maodajie/modai/issues",
+  "author": {
+    "name": "大橙子",
+    "email": "maodajie.com@gmail.com",
+    "url": "http://maodajie.com",
+    "website": "http://modai.maodajie.com",
+    "addgroup": "https://jq.qq.com/?_wv=1027&k=51Zakp5",
+    "telegram": "https://t.me/maccms_tools",
+    "qqgroup": "137183109",
+    "qqcode": "1570457334"
+  },
+  "exploit": {
+    "income": "{/}http://127.0.0.2/",
+    "down": "http://192.168.31.152/addons/modai-down/",
+    "main": "http://192.168.31.152/addons/modai/"
+  },
+  "static": {
+    "income": "{/}https://cdn.jsdelivr.net/gh/maodajie/daima@main/",
+    "down": "https://cdn.jsdelivr.net/gh/maodajie/modai@down/",
+    "main": "https://cdn.jsdelivr.net/gh/maodajie/modai@main/"
+  },
+  "main": "static/script/modai.js",
+  "license": "BSD",
+  "private": true,
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "build": "webpack",
+    "ncu": "npm-check-updates",
+    "ncu-u": "npm-check-updates -u"
+  },
+  "dependencies": {
+    "clipboard": "^2.0.8",
+    "file-saver": "^2.0.5",
+    "kjua": "^0.9.0",
+    "sortablejs": "^1.14.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.1.0",
+    "css-minimizer-webpack-plugin": "^3.0.2",
+    "expose-loader": "^3.0.0",
+    "file-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.1.0",
+    "moment": "^2.29.1",
+    "npm-check-updates": "^11.8.3",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  }
+}

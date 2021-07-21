@@ -1,0 +1,51 @@
+{include file="public/header"}
+<form class="layui-form md-option-wrap">
+	<table class="layui-table">
+		<colgroup>
+			<col width="87">
+			<col width="300">
+			<col>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>名称</th>
+				<th>内容</th>
+				<th>备注</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>后台入口</td>
+				<td>
+					<select name="entry">
+						{maccms:foreach name="$entry"}
+						<option value="{$vo}" {if$mojia.config.entry==$vo} selected{/if}>{$vo}</option>
+						{/maccms:foreach}
+					</select>
+				</td>
+				<td><a lay-submit lay-filter="entry" class="layui-btn">保 存</a></td>
+			</tr>
+			<tr>
+				<td>用户名称</td>
+				<td><input name="from" type="text" class="layui-input" value="{$data.user_name}" readonly></td>
+				<td>魔袋用户名</td>
+			</tr>
+			<tr>
+				<td>邮箱账号</td>
+				<td><input name="from" type="text" class="layui-input" value="{$data.user_email}" readonly></td>
+				<td>邮箱账号</td>
+			</tr>
+			<tr>
+				<td>剩余积分</td>
+				<td><input name="show" type="text" class="layui-input" value="{$data.user_points}" readonly></td>
+				<td><a lay-submit lay-filter="index" data-code="points" data-title="积分记录" data-url="{:mac_url('option/points')}" href="javascript:;">查看积分记录</a></td>
+			</tr>
+			<tr>
+				<td>充值积分</td>
+				<td><a lay-submit lay-filter="money" class="layui-btn layui-btn-fluid">充值积分</a></td>
+				<td>1元={$data.cash_ratio}积分</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+{include file="public/footer"}

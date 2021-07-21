@@ -1,0 +1,236 @@
+{include file="public/header"}
+<div class="layui-tab md-addon-gray md-email-wrap">
+	<ul class="layui-tab-title">
+		<li class="layui-this">邮件发送</li>
+		<li>邮件设置</li>
+		<li>邮件模板</li>
+		<li>邮件记录</li>
+	</ul>
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form" autocomplete="off">
+				<table class="layui-table md-email-table" style="margin-top:0">
+					<colgroup>
+						<col width="100">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>选择模板</td>
+							<td>
+								<select lay-filter="theme">
+									<option value="">请选择模板</option>
+									{volist name="$data['mail']['tpl']" id="vo"}
+									<option value="{$key}">{$vo.title}</option>
+									{/volist}
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>发件账号</td>
+							<td>
+								<select lay-verify="required" name="host">
+									{volist name="$data['mail']['smtp']" id="vo"}
+									<option value="{$key}">{$vo.username}</option>
+									{/volist}
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>发件昵称</td>
+							<td><input lay-verify="required" type="text" name="nick" placeholder="请输入昵称" class="layui-input"></td>
+						</tr>
+						<tr>
+							<td>邮件标题</td>
+							<td><input lay-verify="required" type="text" name="title" placeholder="请输入标题" class="layui-input"></td>
+						</tr>
+						<tr>
+							<td>邮件内容</td>
+							<td><textarea lay-verify="content" id="content" name="content" placeholder="请输入内容" class="layui-textarea" style="display:none;"></textarea></td>
+						</tr>
+						<tr>
+							<td>筛选用户</td>
+							<td>
+								<div class="layui-inline">
+									<select lay-filter="mailer" data-field="group_id">
+										<option value="">{:lang('select_group')}</option>
+										{volist name="$data['group']" id="vo"}
+										<option value="{$vo.group_id}">{$vo.group_name}</option>
+										{/volist}
+									</select>
+								</div>
+								<div class="layui-inline">
+									<div class="md-addon-tool">
+										<input class="layui-input" type="search" placeholder="{:lang('wd')}">
+										<a lay-event="search" class="layui-btn md-addon-rbgo">搜索</a>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="layui-table" lay-filter="mailer">
+					<thead>
+						<tr>
+							<th lay-data="{type:'checkbox'}">选择</th>
+							<th lay-data="{field:'user_id', sort:true, width:80}">编号</th>
+							<th lay-data="{field:'user_name', sort:true, width:200}">用户名</th>
+							<th lay-data="{field:'user_email', sort:true, width:200}">邮箱</th>
+							<th lay-data="{field:'group_name', width:100}">会员组</th>
+							<th lay-data="{field:'user_points', sort:true, width:100}">积分</th>
+							<th lay-data="{field:'user_login_time', sort:true}">上次登录时间</th>
+						</tr>
+					</thead>
+				</table>
+				<div class="layui-form-item">
+					<input lay-verify="mailer" type="hidden" name="email" />
+					<a lay-submit lay-filter="submit" class="layui-btn"><i class="layui-icon">&#xe609;</i>&nbsp;发送邮件</a>
+				</div>
+			</form>
+		</div>
+		<div class="layui-tab-item">
+			<form class="layui-form md-addon-form" autocomplete="off">
+				{volist name="$data['mail']['smtp']" id="vo"}
+				<table class="layui-table" style="margin-top:0">
+					<colgroup>
+						<col width="100">
+						<col width="250">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>内容</th>
+							<th>备注</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>服务器</td>
+							<td><input lay-verify="required" type="text" name="host[]" value="{$vo.host}" placeholder="请输入服务器" class="layui-input"></td>
+							<td>SMTP服务器</td>
+						</tr>
+						<tr>
+							<td>端口</td>
+							<td><input lay-verify="required" type="text" name="port[]" value="{$vo.port}" placeholder="请输入端口" class="layui-input"></td>
+							<td>SMTP服务端口</td>
+						</tr>
+						<tr>
+							<td>传输协议</td>
+							<td>
+								<select name="secure[]">
+									<option value="tsl" {if'tsl'==$vo.secure}selected{/if}>TSL</option>
+									<option value="ssl" {if'ssl'==$vo.secure}selected{/if}>SSL</option>
+								</select>
+							</td>
+							<td>HTTP选TSL；HTTPS选SSl</td>
+						</tr>
+						<tr>
+							<td>账号</td>
+							<td><input lay-verify="required" type="text" name="username[]" value="{$vo.username}" placeholder="请输入账号" class="layui-input"></td>
+							<td>SMTP服务账号</td>
+						</tr>
+						<tr>
+							<td>密码</td>
+							<td><input lay-verify="required" type="text" name="password[]" value="{$vo.password}" placeholder="请输入密码或授权码" class="layui-input"></td>
+							<td>SMTP服务密码或授权码</td>
+						</tr>
+						<tr>
+							<td>测试地址</td>
+							<td><input type="text" name="test[]" placeholder="请输入测试邮件地址" class="layui-input layui-test"></td>
+							<td><a lay-filter="test" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe654;</i>&nbsp;发送测试邮件</a></td>
+						</tr>
+						<tr>
+							<td>操作</td>
+							<td colspan="2">
+								<a lay-filter="adding" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe654;</i>&nbsp;增&nbsp;加</a>
+								<a lay-filter="delete" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe640;</i>&nbsp;删&nbsp;除</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				{/volist}
+				<div class="layui-form-item">
+					<a lay-submit lay-filter="config" data-type="smtp" class="layui-btn"><i class="layui-icon">&#xe621;</i>&nbsp;保存设置</a>
+				</div>
+			</form>
+		</div>
+		<div class="layui-tab-item">
+			<form class="layui-form md-addon-form" autocomplete="off">
+				{volist name="$data['mail']['tpl']" id="vo"}
+				<table class="layui-table md-theme-table" style="margin-top:0">
+					<colgroup>
+						<col width="100">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>发件昵称</td>
+							<td><input lay-verify="required" type="text" name="nick[]" value="{$vo.nick}" placeholder="请输入昵称" class="layui-input"></td>
+						</tr>
+						<tr>
+							<td>邮件标题</td>
+							<td><input lay-verify="required" type="text" name="title[]" value="{$vo.title}" placeholder="请输入标题" class="layui-input"></td>
+						</tr>
+						<tr>
+							<td>邮件内容</td>
+							<td><textarea lay-verify="content" id="content{$key}" name="content[]" placeholder="请输入内容" class="layui-textarea" style="display:none;">{$vo.content}</textarea></td>
+						</tr>
+						<tr>
+							<td>操作</td>
+							<td colspan="2">
+								<a lay-filter="adding" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe654;</i>&nbsp;增&nbsp;加</a>
+								<a lay-filter="delete" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe640;</i>&nbsp;删&nbsp;除</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				{/volist}
+				<div class="layui-form-item">
+					<a lay-submit lay-filter="config" data-type="tpl" class="layui-btn"><i class="layui-icon">&#xe621;</i>&nbsp;保存模板</a>
+				</div>
+			</form>
+		</div>
+		<div class="layui-tab-item">
+			<form class="layui-form md-addon-form" autocomplete="off">
+				{volist name="$data['record']" id="vo"}
+				<table class="layui-table md-record-table" style="margin-top:0">
+					<colgroup>
+						<col width="100">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>收件人</td>
+							<td>{$vo.msg_to}&nbsp;&nbsp;{$vo.msg_time|mac_day}</td>
+						</tr>
+						<tr>
+							<td>邮件内容</td>
+							<td>{$vo.msg_content}</td>
+						</tr>
+					</tbody>
+				</table>
+				{/volist}
+			</form>
+		</div>
+	</div>
+</div>
+{include file="public/footer"}

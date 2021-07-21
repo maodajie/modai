@@ -1,0 +1,92 @@
+{include file="public/header"}
+<form class="layui-form layui-form-pane" lay-filter="config">
+	<input type="hidden" name="__token__" value="{$Request.token}" />
+	<div class="layui-tab">
+		<ul class="layui-tab-title">
+			<li class="layui-this">基本设置</li>
+			<li>播放器代码</li>
+		</ul>
+		<div class="layui-tab-content">
+			<div class="layui-tab-item layui-show">
+				<div class="layui-form-item">
+					<label class="layui-form-label">{:lang('status')}</label>
+					<div class="layui-input-block">
+						<input name="status" type="radio" value="0" title="{:lang('disable')}" {if$data.status==0} checked{/if}>
+						<input name="status" type="radio" value="1" title="{:lang('enable')}" {if$data.status==1} checked{/if}>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">{:lang('code')}</label>
+					<div class="layui-input-block">
+						<input name="from" type="text" class="layui-input" value="{$data.from}" placeholder="{:lang('admin/vodplayer/code_tip')}" {if$data.from} readonly{/if}>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">{:lang('name')}</label>
+					<div class="layui-input-block">
+						<input name="show" type="text" class="layui-input" value="{$data.show}" placeholder="">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">{:lang('remarks')}</label>
+					<div class="layui-input-block">
+						<input name="des" type="text" class="layui-input" value="{$data.des}" placeholder="">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">{:lang('target')}</label>
+					<div class="layui-input-block">
+						<input name="target" type="radio" value="_self" title="{:lang('current')}" {if$data.target!='_blank' } checked{/if}>
+						<input name="target" type="radio" value="_blank" title="{:lang('blank')}" {if$data.target=='_blank' } checked{/if}>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">{:lang('status_parse')}</label>
+					<div class="layui-input-block">
+						<input name="ps" type="radio" value="0" title="{:lang('disable')}" {if$data.ps==0} checked{/if}>
+						<input name="ps" type="radio" value="1" title="{:lang('enable')}" {if$data.ps==1} checked{/if}>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">{:lang('admin/vodplayer/api_url')}</label>
+					<div class="layui-input-block">
+						<input name="parse" type="text" class="layui-input" value="{$data.parse}" placeholder="{:lang('admin/vodplayer/api_url_tip')}">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">{:lang('sort')}</label>
+					<div class="layui-input-block">
+						<input name="sort" type="text" class="layui-input" value="{$data.sort}" placeholder="{:lang('admin/vodplayer/sort_tip')}">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">{:lang('tip')}</label>
+					<div class="layui-input-block">
+						<textarea name="tip" class="layui-textarea" placeholder="" rows="3">{$data.tip}</textarea>
+					</div>
+				</div>
+			</div>
+			<div class="layui-tab-item">
+				<div class="layui-form-item">
+					<label class="layui-form-label">{:lang('file')}</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input" value="/static/player/{$data.from}.js" disabled="disabled">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">{:lang('code')}</label>
+					<div class="layui-input-block">
+						<textarea name="code" class="layui-textarea" placeholder="" rows="23">{$data.code}</textarea>
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item center">
+				<div class="layui-input-block">
+					<button lay-submit lay-filter="config" type="submit" class="layui-btn">{:lang('btn_save')}</button>
+					<button type="reset" class="layui-btn layui-btn-warm">{:lang('btn_reset')}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+{include file="public/footer"}
