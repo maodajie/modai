@@ -1,7 +1,7 @@
 {
   "title": "魔袋",
   "name": "modai",
-  "version": "2021.0721.1756",
+  "version": "2021.0807.1613",
   "description": "苹果CMS v10 魔袋工具箱",
   "keywords": [
     "魔袋",
@@ -50,7 +50,8 @@
   "scripts": {
     "build": "webpack",
     "ncu": "npm-check-updates",
-    "ncu-u": "npm-check-updates -u"
+    "ncu-u": "npm-check-updates -u",
+    "del": "rimraf node_modules"
   },
   "dependencies": {
     "clipboard": "^2.0.8",
@@ -70,6 +71,7 @@
     "mini-css-extract-plugin": "^2.1.0",
     "moment": "^2.29.1",
     "npm-check-updates": "^11.8.3",
+    "rimraf": "^3.0.2",
     "url-loader": "^4.1.1",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2"
