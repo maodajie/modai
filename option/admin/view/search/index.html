@@ -8,7 +8,7 @@
 	{maccms:foreach name="$search"}
 	{if$param.controller==$vo.type}
 	<div class="layui-col-xs4">
-		<a lay-submit lay-filter="write" class="layui-show md-addon-item" href="javascript:;" data-controller="{$param.controller}" data-action="{$vo.action}" data-module="{$param.module}" data-type="{$param.type}" data-mid="{$param.module|mac_get_mid}" data-tid="{$param.tid}" data-rid="{$param.rid}" data-name="{$param.name}" data-id="{$vo.id}" data-start="0">
+		<a lay-submit lay-filter="write" class="layui-show md-addon-item" href="javascript:;" data-mask="{$mojia.base.mask}" data-controller="{$param.controller}" data-action="{$vo.action}" data-module="{$param.module}" data-type="{$param.type}" data-mid="{$param.module|mac_get_mid}" data-tid="{$param.tid}" data-rid="{$param.rid}" data-name="{$param.name}" data-id="{$vo.id}" data-start="0">
 			<div class="amujie-douban-pics">
 				<img class="amujie-douban-imgs" width="100%" style="height: 100%;" src="{$vo.img}" />
 				<span class="layui-show amujie-douban-desc">{$vo.sub}</span>
