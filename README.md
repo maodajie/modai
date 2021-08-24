@@ -7,6 +7,7 @@
 大橙苹果CMS魔袋工具箱无任何内置数据，对用户在使用过程中的信息内容本程序不负任何责任！请知悉！
 
 #### 插件下载
+[https://raw.githubusercontent.com/maodajie/modai/down/zip/modai.zip](https://raw.githubusercontent.com/maodajie/modai/down/zip/modai.zip)
 [https://cdn.jsdelivr.net/gh/maodajie/modai@down/zip/modai.zip](https://cdn.jsdelivr.net/gh/maodajie/modai@down/zip/modai.zip)
 
 #### 安装方法
