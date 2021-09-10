@@ -1,7 +1,7 @@
 {
   "title": "魔袋",
   "name": "modai",
-  "version": "2021.0910.1256",
+  "version": "2021.0910.2143",
   "description": "苹果CMS v10 魔袋工具箱",
   "keywords": [
     "魔袋",
@@ -32,14 +32,12 @@
     "qqcode": "1570457334"
   },
   "exploit": {
-    "income": "{/}http://127.0.0.2/",
-    "down": "http://192.168.31.152/addons/modai-down/",
-    "main": "http://192.168.31.152/addons/modai/"
+    "main": "http://192.168.31.152/addons/modai/",
+    "down": "http://192.168.31.152/addons/modai-down/"
   },
   "statics": {
-    "income": "{/}https://cdn.jsdelivr.net/gh/maodajie/daima@main/",
-    "down": "https://cdn.jsdelivr.net/gh/maodajie/modai@down/",
-    "main": "https://cdn.jsdelivr.net/gh/maodajie/modai@main/"
+    "main": "https://cdn.jsdelivr.net/gh/maodajie/modai@main/",
+    "down": "https://cdn.jsdelivr.net/gh/maodajie/modai@down/"
   },
   "main": "statics/script/index.js",
   "license": "BSD",
