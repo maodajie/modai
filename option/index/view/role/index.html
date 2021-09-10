@@ -1,0 +1,57 @@
+{extend name="index/index"}
+{block name="body"}
+<form class="layui-form md-multi-wrap" autocomplete="off">
+	<table class="layui-table" style="margin-bottom:0">
+		<tbody>
+			<tr>
+				<td>
+					<select lay-filter="multir" data-field="type_id">
+						<option value="">{:lang('select_type')}</option>
+						{volist name="$data['type']" id="vo"}
+						{if$vo.type_mid==1}
+						<option value="{$vo.type_id}">{$vo.type_name}</option>
+						{volist name="vo.child" id="ch"}
+						<option value="{$ch.type_id}">&nbsp;&nbsp;&nbsp;&nbsp;├&nbsp;{$ch.type_name}</option>
+						{/volist}
+						{/if}
+						{/volist}
+					</select>
+				</td>
+				<td>
+					<div class="md-addon-tool">
+						<input class="layui-input" type="search" placeholder="{:lang('wd')}">
+						<a lay-submit lay-filter="search" class="layui-btn md-addon-rbgo">搜索</a>
+					</div>
+				</td>
+				<td>
+					<div class="md-addon-tool">
+						<select lay-filter="space">
+							<option value="3000">间隔3秒</option>
+							<option value="2000">间隔2秒</option>
+							<option value="1000">间隔1秒</option>
+							<option value="5000">间隔5秒</option>
+							<option value="10000">间隔10秒</option>
+							<option value="15000">间隔15秒</option>
+						</select>
+						<a lay-submit lay-filter="start" class="layui-btn md-addon-rbgo">采集</a>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="layui-table" lay-filter="multir">
+		<thead>
+			<tr>
+				<th lay-data="{type:'checkbox'}">选择</th>
+				<th lay-data="{field:'vod_id', sort:true, width:80}">编号</th>
+				<th lay-data="{field:'type_name', width:86}">分类</th>
+				<th lay-data="{field:'vod_name', sort:true, width:200, event:'role', style:'cursor:pointer'}">名称</th>
+				<th lay-data="{field:'vod_remarks', width:120}">备注</th>
+				<th lay-data="{field:'vod_time', sort:true}">时间</th>
+				<th lay-data="{field:'vod_state', width:120}">状态</th>
+			</tr>
+		</thead>
+	</table>
+</form>
+</div>
+{/block}

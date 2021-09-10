@@ -1,0 +1,95 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-tab md-email-wrap">
+	{include file="mailer/navbar"}
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form" autocomplete="off">
+				<table class="layui-table md-email-table" style="margin-top:0">
+					<colgroup>
+						<col width="100">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>选择模板</td>
+							<td>
+								<select lay-filter="theme">
+									<option value="">请选择模板</option>
+									{volist name="$damupo['mail']['tpl']" id="vo"}
+									<option data-url="{:url('mailer/tpl',['id'=>$key])}" value="{$key}">{$vo.title}</option>
+									{/volist}
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>发件账号</td>
+							<td>
+								<select lay-verify="required" name="smtp">
+									{volist name="$damupo['mail']['smtp']" id="vo"}
+									<option value="{$key}">{$vo.username}</option>
+									{/volist}
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>发件昵称</td>
+							<td><input lay-verify="required" type="text" name="nick" placeholder="请输入昵称" class="layui-input"></td>
+						</tr>
+						<tr>
+							<td>邮件标题</td>
+							<td><input lay-verify="required" type="text" name="title" placeholder="请输入标题" class="layui-input"></td>
+						</tr>
+						<tr>
+							<td>邮件内容</td>
+							<td><textarea lay-verify="content" id="content" name="content" placeholder="请输入内容" class="layui-textarea" style="display:none;"></textarea></td>
+						</tr>
+						<tr>
+							<td>筛选用户</td>
+							<td>
+								<div class="layui-inline">
+									<select lay-filter="mailer" data-field="group_id">
+										<option value="">{:lang('select_group')}</option>
+										{volist name="$group" id="vo"}
+										<option value="{$vo.group_id}">{$vo.group_name}</option>
+										{/volist}
+									</select>
+								</div>
+								<div class="layui-inline">
+									<div class="md-addon-tool">
+										<input class="layui-input" type="search" placeholder="{:lang('wd')}">
+										<a lay-event="search" class="layui-btn md-addon-rbgo">搜索</a>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="layui-table" lay-filter="mailer">
+					<thead>
+						<tr>
+							<th lay-data="{type:'checkbox'}">选择</th>
+							<th lay-data="{field:'user_id', sort:true, width:80}">编号</th>
+							<th lay-data="{field:'user_name', sort:true, width:200}">用户名</th>
+							<th lay-data="{field:'user_email', sort:true, width:200}">邮箱</th>
+							<th lay-data="{field:'group_name', width:100}">会员组</th>
+							<th lay-data="{field:'user_points', sort:true, width:100}">积分</th>
+							<th lay-data="{field:'user_login_time', sort:true}">上次登录时间</th>
+						</tr>
+					</thead>
+				</table>
+				<div class="layui-form-item">
+					<input lay-verify="mailer" type="hidden" name="email" />
+					<a data-layer="alert" data-url="{:url('mailer/send',['type'=>'send'])}" lay-submit lay-filter="submit" class="layui-btn"><i class="layui-icon">&#xe609;</i>&nbsp;发送邮件</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{/block}

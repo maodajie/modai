@@ -1,0 +1,36 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-tab md-email-wrap">
+	{include file="mailer/navbar"}
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form" autocomplete="off">
+				{volist name="$data" id="vo"}
+				<table class="layui-table" style="margin-top:0">
+					<colgroup>
+						<col width="100">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>收件人</td>
+							<td>{$vo.msg_to}&nbsp;&nbsp;{$vo.msg_time|mac_day}</td>
+						</tr>
+						<tr>
+							<td>邮件内容</td>
+							<td>{$vo.msg_content}</td>
+						</tr>
+					</tbody>
+				</table>
+				{/volist}
+			</form>
+		</div>
+	</div>
+</div>
+{/block}

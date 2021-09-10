@@ -1,0 +1,76 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-tab md-option-wrap">
+	{include file="option/navbar"}
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form" autocomplete="off">
+				<table class="layui-table" style="margin-top:0">
+					<colgroup>
+						<col width="87">
+						<col width="350">
+						<col width="150">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>内容</th>
+							<th>操作</th>
+							<th>备注</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>后台入口</td>
+							<td colspan="2">
+								<select name="base[entry]">
+									{volist name="$damupo.config.entry" id="vo"}
+									<option value="{$vo}" {if$damupo.base.entry==$vo} selected{/if}>{$vo}</option>
+									{/volist}
+								</select>
+							</td>
+							<td>原admin.php文件</td>
+						</tr>
+						<tr>
+							<td rowspan="2">图片设置</td>
+							<td><input name="base[mask][pcre]" type="text" class="layui-input" value="{$damupo.base.mask.pcre}" placeholder="douban|iqiyi"></td>
+							<td>
+								<select name="base[mask][mode]" lay-filter="">
+									<option value="0" {if$damupo.base.mask.mode==0} selected{/if}>外链图片</option>
+									<option value="1" {if$damupo.base.mask.mode==1} selected{/if}>本地保存</option>
+								</select>
+							</td>
+							<td>需要反盗链的标识</td>
+						</tr>
+						<tr>
+							<td><input name="base[mask][api]" type="text" class="layui-input" value="{$damupo.base.mask.api}" placeholder="请填写接口"></td>
+							<td>
+								<select name="base[mask][state]" lay-filter="option">
+									<option value="0" {if$damupo.base.mask.state==0} selected{/if} data-url="">关闭</option>
+									<option value="1" {if$damupo.base.mask.state==1} selected{/if} data-url="https://i{:array_rand([0,1,2,3])}.wp.com/">WP缓存</option>
+									<option value="2" {if$damupo.base.mask.state==2} selected{/if} data-url="https://images.weserv.nl/?url=">CF缓存</option>
+									<option value="3" {if$damupo.base.mask.state==3} selected{/if} data-url="">自定义</option>
+								</select>
+							</td>
+							<td>解决图片403问题</td>
+						</tr>
+						<tr>
+							<td rowspan="2">豆瓣设置</td>
+							<td colspan="2"><textarea name="base[douban][header]" placeholder="User-Agent" class="layui-textarea">{$damupo.base.douban.header}</textarea></td>
+							<td>豆瓣User-Agent</td>
+						</tr>
+						<tr>
+							<td colspan="2"><textarea name="base[douban][cookie]" placeholder="Cookie" class="layui-textarea">{$damupo.base.douban.cookie}</textarea></td>
+							<td>豆瓣Cookie</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="layui-form-item">
+					<a data-url="{:url('option/save')}" lay-submit lay-filter="submit" class="layui-btn">保存设置</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{/block}

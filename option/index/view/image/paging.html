@@ -1,0 +1,9 @@
+{if$data['total']}
+<div class="md-page-wrap">
+	<div class="md-page-item layui-box layui-laypage layui-laypage-default">
+		{volist name="$data['total']" id="vo"}
+		<a class="{if$vo==$param.start}md-page-this{/if}" href="{:url(request()->controller().'/'.request()->action(),['id'=>$param.id,'start'=>$vo])}">{$key}</a>
+		{/volist}
+	</div>
+</div>
+{/if}

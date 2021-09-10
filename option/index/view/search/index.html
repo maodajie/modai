@@ -1,0 +1,37 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="md-search-wrap layui-row">
+	<table class="layui-table" style="margin-top:0">
+		<colgroup>
+			<col width="100">
+			<col>
+			<col width="80">
+		</colgroup>
+		<tbody>
+			<tr>
+				<td><a data-wd="{:urldecode($param.wd)}" data-pic="{:urldecode(urldecode($param.pic))}" data-url="{:mao_url_admin('vod/info',[],$damupo.config.admin)}" lay-submit lay-filter="handle" class="layui-btn layui-btn-primary">添加数据</a></td>
+				<td><input class="layui-input" type="search" value="{:urldecode($param.wd)}" placeholder="{:lang('wd')}"></td>
+				<td><a data-type="search" data-url="{:url('search/index',['module'=>'vod','pic'=>urldecode($param.pic)])}" lay-submit lay-filter="handle" class="layui-btn">搜索</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="md-page-wrap">
+		{if!$data}
+		<div class="md-page-btns layui-text">
+			暂无相关数据,请选择添加
+		</div>
+		{/if}
+	</div>
+	{volist name="$data" id="vo"}
+	<div class="layui-col-xs4">
+		<a data-pic="{:urldecode(urldecode($param.pic))}" data-url="{:mao_url_admin('vod/info',['id'=>$vo.id],$damupo.config.admin)}" lay-submit lay-filter="handle" class="md-search-item layui-show" href="javascript:;">
+			<div class="md-search-boxs">
+				<img class="md-search-pics layui-show" width="100%" height="100%" src="{$vo.pic}" />
+				<span class="md-search-tips layui-show">{$vo.sub}</span>
+			</div>
+			<span class="md-search-name layui-show layui-elip">{$vo.name}</span>
+		</a>
+	</div>
+	{/volist}
+</div>
+{/block}

@@ -1,8 +1,8 @@
 <?php
 /*!
  * @author:大橙子
- * @website:https://maodajie.com
- * @telegram:https://t.me/maccms_tool
+ * @website:http://maodajie.com
+ * @telegram:https://t.me/maccms_tools
  * @qqcode:1570457334
  */
 

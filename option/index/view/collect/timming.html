@@ -1,0 +1,68 @@
+{extend name="index/index"}
+{block name="body"}
+<form class="layui-form layui-form-pane md-addon-pz10" lay-filter="config">
+	<input type="hidden" name="__token__" value="{$Request.token}" />
+	<div class="layui-form-item">
+		<label class="layui-form-label">{:lang('status')}</label>
+		<div class="layui-input-block">
+			<input name="status" type="radio" value="0" title="{:lang('disable')}" {if$data.status==0} checked{/if}>
+			<input name="status" type="radio" value="1" title="{:lang('enable')}" {if$data.status==1} checked{/if}>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">{:lang('name')}</label>
+		<div class="layui-input-block">
+			<input lay-verify="required" name="name" type="text" class="layui-input" value="{$param.id}" placeholder="{:lang('admin/timming/unique_id')}" {if$data.name} readonly{/if}>
+		</div>
+		<div class="layui-form-mid layui-word-aux">{:lang('admin/timming/call_method')}：{:mao_url_admin('timming/index',['name'=>$param.id],$damupo.config.root.'api.php')}</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">{:lang('remarks')}</label>
+		<div class="layui-input-block">
+			<input lay-verify="required" name="des" type="text" class="layui-input" value="{$data.des}" placeholder="">
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">{:lang('admin/timming/exec_file')}</label>
+		<div class="layui-input-block">
+			<select name="file">
+				<option value="collect" {if$data.file=='collect'}selected{/if}>{:lang('admin/timming/collect')}</option>
+				<option value="make" {if$data.file=='make'}selected{/if}>{:lang('admin/timming/make')}</option>
+				<option value="cj" {if$data.file=='cj'}selected{/if}>{:lang('admin/timming/cj')}</option>
+				<option value="cache" {if$data.file=='cache'}selected{/if}>{:lang('admin/timming/cache')}</option>
+				<option value="urlsend" {if$data.file=='urlsend'}selected{/if}>{:lang('admin/timming/urlsend')}</option>
+			</select>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">{:lang('admin/timming/attach_param')}</label>
+		<div class="layui-input-block">
+			<input name="param" type="text" class="layui-input" value="{$data.param}" placeholder="{:lang('admin/timming/attach_param_tip')}">
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">{:lang('admin/timming/exec_cycle')}</label>
+		<div class="layui-input-block role-list-form">
+			{for start="0" end="7"}
+			<input type="checkbox" name="weeks[]" class="layui-checkbox" lay-skin="primary" value="{$i}" title="{:lang(date('l',strtotime('+'.$i.' day',1630771200)))}" {if in_array(strval($i),explode(',',$data.weeks),true)}checked{/if}>
+			{/for}
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">{:lang('admin/timming/exec_time')}</label>
+		<div class="layui-input-block role-list-form">
+			{for start="0" end="24"}
+			<input type="checkbox" name="hours[]" class="layui-checkbox" lay-skin="primary" value="{:sprintf('%02d',$i)}" title="{:sprintf('%02d',$i)}" {if in_array(strval(sprintf('%02d',$i)),explode(',',$data.hours),true)}checked{/if}>
+			{/for}
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+			<button lay-submit lay-filter="checkbox" type="button" class="layui-btn">{:lang('check_all')}</button>
+			<button data-type="other" lay-submit lay-filter="checkbox" type="button" class="layui-btn">{:lang('check_other')}</button>
+			<button data-url="{:mao_url_admin('timming/info',['id'=>$param.id],$damupo.config.admin)}" lay-submit lay-filter="submit" type="button" class="layui-btn">{:lang('btn_save')}</button>
+			<button type="reset" class="layui-btn layui-btn-warm">{:lang('btn_reset')}</button>
+		</div>
+	</div>
+</form>
+{/block}

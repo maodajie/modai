@@ -1,0 +1,46 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="md-sign-wrap">
+	<div class="md-sign-main">
+		<div class="md-sign-boxs">
+			<h2>{$damupo.package.title}用户密码找回</h2>
+			<p class="layui-text md-sign-tips">找回失败请联系QQ:{$damupo.package.author.qqcode}</p>
+		</div>
+		<div class="md-sign-boxs layui-form">
+			<div class="layui-form-item md-sign-item">
+				<label class="md-sign-icon layui-icon layui-icon-email"></label>
+				<input type="email" name="to" lay-verify="email" placeholder="邮箱" class="layui-input md-sign-input">
+				<input type="hidden" name="ac" value="email">
+			</div>
+			<div class="layui-form-item md-sign-item">
+				<div class="layui-row">
+					<div class="layui-col-xs7">
+						<label class="md-sign-icon layui-icon layui-icon-vercode"></label>
+						<input type="text" name="code" placeholder="验证码" class="layui-input md-sign-input">
+					</div>
+					<div class="layui-col-xs5">
+						<div style="margin-left: 10px;">
+							<button type="button" data-url="{:url('sign/msg',['type'=>'findpass_msg'])}" lay-submit lay-filter="verify" class="layui-btn layui-btn-primary layui-btn-fluid">获取验证码</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item md-sign-item">
+				<label class="md-sign-icon layui-icon layui-icon-password"></label>
+				<input type="password" name="user_pwd" placeholder="密码" class="layui-input md-sign-input">
+			</div>
+			<div class="layui-form-item md-sign-item">
+				<label class="md-sign-icon layui-icon layui-icon-password"></label>
+				<input type="password" name="user_pwd2" placeholder="确认密码" class="layui-input md-sign-input">
+			</div>
+			<div class="layui-form-item">
+				<button type="button" data-url="{:url('sign/post',['type'=>'findpass_reset'])}" data-jump="{:url('index/index')}" lay-submit lay-filter="submit" class="layui-btn layui-btn-fluid">提 交</button>
+			</div>
+			<div class="layui-form-item">
+				<a href="{:url('sign/register')}" class="md-sign-left">注册账号</a>
+				<a href="{:url('sign/login')}" class="md-sign-right">立即登录</a>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}

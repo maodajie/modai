@@ -1,0 +1,33 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="md-image-wrap layui-row">
+	{include file="image/paging"}
+	{volist name="$data['image']" id="vo"}
+	<div class="layui-col-xs4">
+		<div class="md-image-item layui-show" href="javascript:;">
+			<div class="md-image-boxs">
+				<img class="md-image-pics layui-show" width="100%" height="auto" src="{:mao_url_img($vo)}" data-module="{$param.module}" data-url="{$vo}" />
+				<ul class="md-image-btns layui-hide">
+					{if$param.module=='vod'}
+					<li class="layui-col-xs6 md-image-edit"><a data-type="{$param.module}_pic" lay-submit lay-filter="append" class="layui-btn layui-btn-sm layui-btn-fluid">添加图片</a></li>
+					<li class="layui-col-xs6 md-image-edit"><a data-type="{$param.module}_pic_slide" lay-submit lay-filter="append" class="layui-btn layui-btn-sm layui-btn-fluid">添加海报</a></li>
+					<li class="layui-col-xs6 md-image-edit"><a data-type="{$param.module}_pic_thumb" lay-submit lay-filter="append" class="layui-btn layui-btn-sm layui-btn-fluid">添缩略图</a></li>
+					<li class="layui-col-xs6 md-image-edit"><a data-type="{$param.module}_pic_screenshot" lay-submit lay-filter="append" class="layui-btn layui-btn-sm layui-btn-fluid">添加截图</a></li>
+					<li class="layui-col-xs12 md-image-edit"><a data-module="{$param.module}" data-url="{$vo}" lay-submit lay-filter="copy" class="layui-btn layui-btn-sm layui-btn-fluid">复制链接</a></li>
+					{elseif$param.module=='website'}
+					<li class="layui-col-xs6 md-image-edit"><a data-type="{$param.module}_pic" lay-submit lay-filter="append" class="layui-btn layui-btn-sm layui-btn-fluid">添加图片</a></li>
+					<li class="layui-col-xs6 md-image-edit"><a data-type="{$param.module}_pic_screenshot" lay-submit lay-filter="append" class="layui-btn layui-btn-sm layui-btn-fluid">添加截图</a></li>
+					<li class="layui-col-xs6 md-image-edit"><a data-type="{$param.module}_LOGO" lay-submit lay-filter="append" class="layui-btn layui-btn-sm layui-btn-fluid">添加LOGO</a></li>
+					<li class="layui-col-xs6 md-image-edit"><a data-module="{$param.module}" data-url="{$vo}" lay-submit lay-filter="copy" class="layui-btn layui-btn-sm layui-btn-fluid">复制链接</a></li>
+					{else}
+					<li class="layui-col-xs6 md-image-edit"><a data-type="{$param.module}_pic" lay-submit lay-filter="append" class="layui-btn layui-btn-sm layui-btn-fluid">添加图片</a></li>
+					<li class="layui-col-xs6 md-image-edit"><a data-module="{$param.module}" data-url="{$vo}" lay-submit lay-filter="copy" class="layui-btn layui-btn-sm layui-btn-fluid">复制链接</a></li>
+					{/if}
+				</ul>
+			</div>
+		</div>
+	</div>
+	{/volist}
+	{include file="image/paging"}
+</div>
+{/block}

@@ -1,0 +1,55 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-tab md-option-wrap">
+	{include file="user/navbar"}
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form md-option-wrap">
+				<table class="layui-table" style="margin-top:0">
+					<colgroup>
+						<col width="87">
+						<col width="150">
+						<col width="150">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th colspan="2">内容</th>
+							<th>备注</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>用户名称</td>
+							<td colspan="2"><input type="text" class="layui-input" value="{$data.user_name}" readonly></td>
+							<td>魔袋用户名</td>
+						</tr>
+						<tr>
+							<td>邮箱账号</td>
+							<td colspan="2"><input type="text" class="layui-input" value="{$data.user_email}" readonly></td>
+							<td>魔袋用户邮箱账号</td>
+						</tr>
+						<tr>
+							<td>会员级别</td>
+							<td colspan="2"><input type="text" class="layui-input" value="{$data.group.group_name}" readonly></td>
+							<td>魔袋用户会员级别</td>
+						</tr>
+						<tr>
+							<td>剩余积分</td>
+							<td colspan="2"><input type="text" class="layui-input" value="{$data.user_points}" readonly></td>
+							<td>1元=={$data.user_config.cash_ratio}积分</td>
+						</tr>
+						<tr>
+							<td>用户操作</td>
+							<td><a href="{:url('sign/login')}" class="layui-btn layui-btn-danger layui-btn-fluid">切换账号</a></td>
+							<td><a href="{:url('sign/logout')}" class="layui-btn layui-btn-fluid">退出登录</a></td>
+							<td>请选择执行</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+{/block}

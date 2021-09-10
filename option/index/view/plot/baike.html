@@ -1,0 +1,23 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-row ts-addon-wrap ts-image-wrap">
+	<table class="layui-table">
+		<tbody>
+			<tr>
+				<td width="40" align="center">
+					<a lay-submit lay-filter="submit" class="layui-btn">添加剧情</a>
+				</td>
+				<td>数据入库</td>
+			</tr>
+			{volist name="$data" id="vo"}
+			<tr>
+				<td colspan="2">{$vo.name}</td>
+			</tr>
+			<tr>
+				<td colspan="2">{$vo.detail}</td>
+			</tr>
+			{/volist}
+		</tbody>
+	</table>
+</div>
+{/block}

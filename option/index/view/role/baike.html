@@ -1,0 +1,26 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-row ts-addon-wrap ts-image-wrap">
+	<table class="layui-table">
+		<tbody>
+			<tr>
+				<td width="40" align="center">
+					<a lay-submit lay-filter="submit" class="layui-btn">添加角色</a>
+				</td>
+				<td>数据入库</td>
+			</tr>
+			{maccms:foreach name="$data"}
+			<tr>
+				<td width="75" align="center">
+					<img width="75" height="100" src="{$vo.image}">
+				</td>
+				<td>
+					<p style="font-weight:bold;margin-bottom:5px">{$vo.actor}&nbsp;饰演&nbsp;{$vo.role}</p>
+					<p>{$vo.content}</p>
+				</td>
+			</tr>
+			{/maccms:foreach}
+		</tbody>
+	</table>
+</div>
+{/block}

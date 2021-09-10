@@ -1,0 +1,75 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-tab md-email-wrap">
+	{include file="mailer/navbar"}
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form md-addon-form" autocomplete="off">
+				{volist name="$damupo['mail']['smtp']" id="vo"}
+				<table class="layui-table" style="margin-top:0">
+					<colgroup>
+						<col width="100">
+						<col width="250">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>内容</th>
+							<th>备注</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>服务器</td>
+							<td><input lay-verify="required" type="text" name="mail[smtp][host][]" value="{$vo.host}" placeholder="请输入服务器" class="layui-input"></td>
+							<td>SMTP服务器</td>
+						</tr>
+						<tr>
+							<td>端口</td>
+							<td><input lay-verify="required" type="text" name="mail[smtp][port][]" value="{$vo.port}" placeholder="请输入端口" class="layui-input"></td>
+							<td>SMTP服务端口</td>
+						</tr>
+						<tr>
+							<td>传输协议</td>
+							<td>
+								<select name="mail[smtp][secure][]">
+									<option value="tsl" {if'tsl'==$vo.secure}selected{/if}>TSL</option>
+									<option value="ssl" {if'ssl'==$vo.secure}selected{/if}>SSL</option>
+								</select>
+							</td>
+							<td>HTTP选TSL；HTTPS选SSl</td>
+						</tr>
+						<tr>
+							<td>账号</td>
+							<td><input lay-verify="required" type="text" name="mail[smtp][username][]" value="{$vo.username}" placeholder="请输入账号" class="layui-input"></td>
+							<td>SMTP服务账号</td>
+						</tr>
+						<tr>
+							<td>密码</td>
+							<td><input lay-verify="required" type="text" name="mail[smtp][password][]" value="{$vo.password}" placeholder="请输入密码或授权码" class="layui-input"></td>
+							<td>SMTP服务密码或授权码</td>
+						</tr>
+						<tr>
+							<td>测试地址</td>
+							<td><input type="text" id="email" value="test@gmail.com" placeholder="请输入测试邮件地址" class="layui-input layui-test"></td>
+							<td><a data-url="{:url('mailer/send',['type'=>'test'])}" lay-filter="test" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe654;</i>&nbsp;发送测试邮件</a></td>
+						</tr>
+						<tr>
+							<td>操作</td>
+							<td colspan="2">
+								<a lay-filter="adding" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe654;</i>&nbsp;增&nbsp;加</a>
+								<a lay-filter="delete" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe640;</i>&nbsp;删&nbsp;除</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				{/volist}
+				<div class="layui-form-item">
+					<a data-url="{:url('option/save')}" lay-submit lay-filter="submit" class="layui-btn"><i class="layui-icon">&#xe621;</i>&nbsp;保存设置</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{/block}

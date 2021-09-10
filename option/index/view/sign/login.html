@@ -1,0 +1,28 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="md-sign-wrap">
+	<div class="md-sign-main">
+		<div class="md-sign-boxs">
+			<h2>{$damupo.package.title}用户登录</h2>
+			<p class="layui-text md-sign-tips">登录失败请联系QQ:{$damupo.package.author.qqcode}</p>
+		</div>
+		<div class="md-sign-boxs layui-form">
+			<div class="layui-form-item md-sign-item">
+				<label class="md-sign-icon layui-icon layui-icon-email"></label>
+				<input type="email" name="user_name" lay-verify="email" placeholder="邮箱" class="layui-input md-sign-input">
+			</div>
+			<div class="layui-form-item md-sign-item">
+				<label class="md-sign-icon layui-icon layui-icon-password"></label>
+				<input type="password" name="user_pwd" lay-verify="required" placeholder="密码" class="layui-input md-sign-input">
+			</div>
+			<div class="layui-form-item">
+				<button type="button" data-url="{:url('sign/post',['type'=>'login'])}" data-jump="{:url('index/index')}" lay-submit lay-filter="submit" class="layui-btn layui-btn-fluid">登 录</button>
+			</div>
+			<div class="layui-form-item">
+				<a href="{:url('sign/findpass')}" class="md-sign-left">忘记密码</a>
+				<a href="{:url('sign/register')}" class="md-sign-right">注册账号</a>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}

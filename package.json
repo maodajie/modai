@@ -1,7 +1,7 @@
 {
   "title": "魔袋",
   "name": "modai",
-  "version": "2021.0825.1928",
+  "version": "2021.0910.1256",
   "description": "苹果CMS v10 魔袋工具箱",
   "keywords": [
     "魔袋",
@@ -41,7 +41,7 @@
     "down": "https://cdn.jsdelivr.net/gh/maodajie/modai@down/",
     "main": "https://cdn.jsdelivr.net/gh/maodajie/modai@main/"
   },
-  "main": "statics/script/modai.js",
+  "main": "statics/script/index.js",
   "license": "BSD",
   "private": true,
   "engines": {
@@ -54,26 +54,24 @@
     "del": "rimraf node_modules"
   },
   "dependencies": {
-    "clipboard": "^2.0.8",
-    "file-saver": "^2.0.5",
-    "kjua": "^0.9.0",
-    "sortablejs": "^1.14.0"
+    "clipboard": "^2.0.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
+    "@babel/core": "^7.15.0",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^9.0.1",
-    "css-loader": "^6.1.0",
+    "css-loader": "^6.2.0",
     "css-minimizer-webpack-plugin": "^3.0.2",
     "expose-loader": "^3.0.0",
     "file-loader": "^6.2.0",
-    "mini-css-extract-plugin": "^2.1.0",
+    "mini-css-extract-plugin": "^2.2.0",
     "moment": "^2.29.1",
     "npm-check-updates": "^11.8.3",
+    "opn-webpack-plugin": "^1.0.2",
     "rimraf": "^3.0.2",
     "url-loader": "^4.1.1",
-    "webpack": "^5.45.1",
-    "webpack-cli": "^4.7.2"
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
   }
 }

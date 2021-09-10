@@ -1,0 +1,43 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="md-banner-wrap layui-row">
+	<div class="md-page-wrap">
+		<div class="layui-btn-group">
+			{volist name="$data['type']" id="vo"}
+			<a class="md-page-btns layui-btn layui-btn-primary{if$key==$damupo.config.action} md-page-this{/if}" href="{:url('banner/'.$key)}">{$vo.name}</a>
+			{/volist}
+		</div>
+	</div>
+	<div class="md-page-wrap">
+		<div class="md-page-cont layui-box layui-laypage layui-laypage-default">
+			{volist name="$data['menu']" id="vo"}
+			<a class="md-page-item{if$vo.url==urldecode($param.url)} md-page-this{/if}" href="{:url('banner/'.$damupo.config.action,['url'=>$vo.url])}">{$vo.name}</a>
+			{/volist}
+		</div>
+	</div>
+	<div class="md-page-wrap">
+		{if!$data['info']}
+		<div class="md-page-btns layui-text">
+			数据获取失败，<a style="color:red;" href="javascript:location.reload();">点我刷新</a>
+			<p>若多次刷新无效请等待10分钟后再试</p>
+		</div>
+		{/if}
+	</div>
+	<div class="md-addon-pz10">
+		{volist name="$data['info']" id="vo"}
+		<div class="layui-col-xs4">
+			<div class="md-banner-item layui-show" href="javascript:;">
+				<div class="md-banner-boxs">
+					<img class="md-banner-pics layui-show" width="100%" height="auto" src="{:mao_url_img($vo.image)}" data-module="{$param.module}" data-url="{$vo.image}" />
+					<ul class="md-banner-btns layui-hide">
+						<li class="layui-col-xs6 md-banner-edit"><a data-module="vod" data-pic="{$vo.image}" data-url="{:url('search/index',['module'=>'vod','wd'=>$vo.title,'pic'=>urlencode($vo.image)])}" lay-submit lay-filter="banner" class="layui-btn layui-btn-fluid">添加海报</a></li>
+						<li class="layui-col-xs6 md-banner-edit"><a data-module="vod" data-url="{$vo.image}" lay-submit lay-filter="copy" class="layui-btn layui-btn-fluid">复制链接</a></li>
+					</ul>
+					<div class="md-banner-name">{$vo.title}</div>
+				</div>
+			</div>
+		</div>
+		{/volist}
+	</div>
+</div>
+{/block}

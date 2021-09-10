@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{:urldecode(mac_default($param.name,'魔袋工具箱'))}</title>
+<link rel="stylesheet" type="text/css" href="{$damupo.config.path}{$damupo.config.base}/layui/css/layui.css?ver={$damupo.config.ver}" />
+<link rel="stylesheet" type="text/css" href="{$damupo.config.path}{$damupo.config.base}/style/modai.css?ver={$damupo.config.ver}" />
+</head>
+<body class="md-addon-body">
+{block name="body"}
+<div class="layui-bg-gray md-addon-pz10 md-index-wrap">
+	<blockquote class="layui-elem-quote layui-quote-nm ts-admin-table">
+		<p style="color:red">免责声明：此插件未内置任何可播放数据，对用户在使用过程中的信息内容本程序不负任何责任！请知悉！</p>
+	</blockquote>
+	<div class="layui-row layui-col-space10">
+		{volist name="$data" id="vo"}
+		<div class="layui-col-md4">
+			<div lay-submit lay-filter="index" class="layui-card layui-btn layui-btn-fluid md-addon-card" data-title="{$vo.name}" data-jump="{$vo.jump}" data-code="{$vo.code}" data-url="{$vo.url}">
+				<h2 class="md-addon-name">{$vo.name}</h2>
+				<p class="md-addon-text">{$vo.tip}</p>
+			</div>
+		</div>
+		{/volist}
+	</div>
+</div>
+{/block}
+<script type="text/javascript">
+	var magic = {
+		'root': '{$damupo.config.root}',
+		'path': '{$damupo.config.path}',
+		'base': '{$damupo.config.base}',
+		'admin': '{$damupo.config.admin}',
+		'index': '{$damupo.config.index}',
+	};
+</script>
+{if$damupo.config.mode=='exploit'}
+<script src="{$damupo.config.path}{$damupo.config.node}/clipboard/dist/clipboard.min.js?v={$damupo.config.ver}" type="text/javascript" charset="utf-8"></script>
+{/if}
+<script src="{$damupo.config.path}{$damupo.config.base}/layui/layui.js?ver={$damupo.config.ver}" type="text/javascript" charset="utf-8"></script>
+<script src="{$damupo.config.path}{$damupo.config.base}/script/modai.js?ver={$damupo.config.ver}" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

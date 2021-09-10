@@ -1,0 +1,10 @@
+<form class="layui-form">
+	<div class="md-addon-tool">
+		<select name="base[entry]">
+			{volist name="$damupo.config.entry" id="vo"}
+			<option value="{$vo}" {if$damupo.base.entry==$vo} selected{/if}>{$vo}</option>
+			{/volist}
+		</select>
+		<a data-url="{:url('option/save')}" lay-submit lay-filter="submit" class="layui-btn md-addon-rbgo">保 存</a>
+	</div>
+</form>

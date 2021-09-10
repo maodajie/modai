@@ -17,23 +17,23 @@
 4. 点击配置后自动生成快捷菜单即可使用
 
 #### 快捷菜单
- - 魔袋工具箱,/addons/modai/index.php
+ - 魔袋工具箱,/addons/modai
 
 #### 常见问题
  - 未生成快捷菜单请手动添加
- - 魔袋工具箱,/addons/[文件夹名称]/index.php
- - 魔袋工具箱,/addons/modai/index.php
- - 魔袋工具箱,/addons/modai-mian/index.php
+ - 魔袋工具箱,/addons/[文件夹名称]
+ - 魔袋工具箱,/addons/modai-mian
+ - 魔袋工具箱,/addons/modai
 
-#### 功能介绍
+#### 插件信息
+- 主题作者：大橙子
+- 联系作者：[QQ:15704757334](http://wpa.qq.com/msgrd?v=3&uin=1570457334&site=qq&menu=yes)
+- 纸飞机群：[https://t.me/maccms_tools](https://t.me/maccms_tools)
+
+#### 功能列表
 1. 采集功能优化
 2. 邮件批量发送
 3. 轮播图片获取
 4. 分集剧情获取
 5. 视频角色获取
 6. 视频评论获取
-
-#### 插件信息
-- 主题作者：大橙子
-- 联系作者：[QQ:15704757334](http://wpa.qq.com/msgrd?v=3&uin=1570457334&site=qq&menu=yes)
-- 纸飞机群：[https://t.me/maccms_tools](https://t.me/maccms_tools)

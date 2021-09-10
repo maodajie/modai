@@ -1,0 +1,38 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-tab md-option-wrap">
+	{include file="user/navbar"}
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form md-option-wrap">
+				<table class="layui-table" style="margin-top:0">
+					<colgroup>
+						<col width="90">
+						<col width="150">
+						<col width="200">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>类型</th>
+							<th>积分</th>
+							<th>用户名</th>
+							<th>时间</th>
+						</tr>
+					</thead>
+					<tbody>
+						{volist name="$data" id="vo"}
+						<tr>
+							<td>{$vo.ulog_title}</td>
+							<td>{$vo.ulog_points}</td>
+							<td>{$vo.user_name}</td>
+							<td>{$vo.ulog_time}</td>
+						</tr>
+						{/volist}
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+{/block}

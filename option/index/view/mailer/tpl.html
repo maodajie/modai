@@ -1,0 +1,50 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-tab md-email-wrap">
+	{include file="mailer/navbar"}
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form md-addon-form" autocomplete="off">
+				{volist name="$damupo['mail']['tpl']" id="vo"}
+				<table class="layui-table md-theme-table" style="margin-top:0">
+					<colgroup>
+						<col width="100">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>发件昵称</td>
+							<td><input lay-verify="required" type="text" name="mail[tpl][nick][]" value="{$vo.nick}" placeholder="请输入昵称" class="layui-input"></td>
+						</tr>
+						<tr>
+							<td>邮件标题</td>
+							<td><input lay-verify="required" type="text" name="mail[tpl][title][]" value="{$vo.title}" placeholder="请输入标题" class="layui-input"></td>
+						</tr>
+						<tr>
+							<td>邮件内容</td>
+							<td><textarea lay-verify="content" id="content{$key}" name="mail[tpl][content][]" placeholder="请输入内容" class="layui-textarea" style="display:none;">{$vo.content}</textarea></td>
+						</tr>
+						<tr>
+							<td>操作</td>
+							<td colspan="2">
+								<a lay-filter="adding" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe654;</i>&nbsp;增&nbsp;加&nbsp;</a>
+								<a lay-filter="delete" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe640;</i>&nbsp;删&nbsp;除&nbsp;</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				{/volist}
+				<div class="layui-form-item">
+					<a data-url="{:url('option/save')}" lay-submit lay-filter="submit" class="layui-btn"><i class="layui-icon">&#xe621;</i>&nbsp;保存设置</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{/block}

@@ -1,0 +1,43 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-tab md-center-wrap">
+	{include file="user/navbar"}
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form" autocomplete="off">
+				<table class="layui-table" style="margin-top:0">
+					<colgroup>
+						<col width="87">
+						<col width="400">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2">积分充值</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>充值卡号</td>
+							<td><input lay-verify="required" type="text" name="card_no" placeholder="请输入卡号" class="layui-input layui-test"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>充值卡密</td>
+							<td><input lay-verify="required" type="text" name="card_pwd" placeholder="请输入卡密" class="layui-input layui-test"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>充值操作</td>
+							<td><a lay-submit lay-filter="submit" class="layui-btn layui-btn-danger layui-btn-fluid">确认充值</a></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+			{$html_price}
+		</div>
+	</div>
+</div>
+{/block}
