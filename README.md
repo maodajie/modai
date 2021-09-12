@@ -1,4 +1,4 @@
-# Modai-dev
+# Modai
 
 #### 项目介绍
 苹果CMS v10 魔袋工具箱 [http://modai.maodajie.com](http://modai.maodajie.com)
