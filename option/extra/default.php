@@ -9,9 +9,9 @@ return [
         'entry' => '',
         'mask' => [
             'pcre' => 'douban|iqiyi',
+            'mode' => '0',
             'api' => 'https://i0.wp.com/',
             'state' => '1',
-            'mode' => '0',
         ],
         'douban' => [
             'header' => '',

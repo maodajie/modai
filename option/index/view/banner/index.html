@@ -28,7 +28,7 @@
 		<div class="layui-col-xs4">
 			<div class="md-banner-item layui-show" href="javascript:;">
 				<div class="md-banner-boxs">
-					<img class="md-banner-pics layui-show" width="100%" height="auto" src="{:mao_url_img($vo.image)}" data-module="{$param.module}" data-url="{$vo.image}" />
+					<img class="md-banner-pics layui-show" width="100%" height="auto" src="{:mao_url_img($vo.image,1)}" data-module="{$param.module}" data-url="{$vo.image}" />
 					<ul class="md-banner-btns layui-hide">
 						<li class="layui-col-xs6 md-banner-edit"><a data-module="vod" data-pic="{$vo.image}" data-url="{:url('search/index',['module'=>'vod','wd'=>$vo.title,'pic'=>urlencode($vo.image)])}" lay-submit lay-filter="banner" class="layui-btn layui-btn-fluid">添加海报</a></li>
 						<li class="layui-col-xs6 md-banner-edit"><a data-module="vod" data-url="{$vo.image}" lay-submit lay-filter="copy" class="layui-btn layui-btn-fluid">复制链接</a></li>
