@@ -1,7 +1,7 @@
 {
   "title": "魔袋",
   "name": "modai",
-  "version": "2021.0912.1304",
+  "version": "2021.0913.1253",
   "description": "苹果CMS v10 魔袋工具箱",
   "keywords": [
     "魔袋",
@@ -23,20 +23,17 @@
   "bugs": "https://github.com/maodajie/modai/issues",
   "author": {
     "name": "大橙子",
-    "email": "maodajie.com@gmail.com",
     "url": "http://maodajie.com",
-    "website": "http://modai.maodajie.com",
+    "email": "maodajie.com@gmail.com",
     "addgroup": "https://jq.qq.com/?_wv=1027&k=51Zakp5",
     "telegram": "https://t.me/maccms_tools",
     "qqgroup": "137183109",
     "qqcode": "1570457334"
   },
   "exploit": {
-    "main": "http://192.168.31.152/addons/modai/",
     "down": "http://192.168.31.152/addons/modai-down/"
   },
   "statics": {
-    "main": "https://cdn.jsdelivr.net/gh/maodajie/modai@main/",
     "down": "https://cdn.jsdelivr.net/gh/maodajie/modai@down/"
   },
   "main": "statics/script/index.js",
