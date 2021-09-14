@@ -15,6 +15,7 @@ class Init
         require CONF_PATH . 'common.php';
         if (request()->root() != request()->baseFile()) {
             header('Location:' . request()->baseFile());
+            exit;
         }
     }
 }
