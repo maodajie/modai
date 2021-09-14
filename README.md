@@ -26,7 +26,7 @@
  - 魔袋工具箱,/addons/modai
 
 #### 插件信息
-- 主题作者：大橙子
+- 插件作者：大橙子
 - 联系作者：[QQ:15704757334](http://wpa.qq.com/msgrd?v=3&uin=1570457334&site=qq&menu=yes)
 - 纸飞机群：[https://t.me/maccms_tools](https://t.me/maccms_tools)
 

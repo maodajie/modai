@@ -6,7 +6,7 @@
 	<div class="layui-col-xs4">
 		<div class="md-image-item layui-show" href="javascript:;">
 			<div class="md-image-boxs">
-				<img class="md-image-pics layui-show" width="100%" height="auto" src="{:mao_url_img($vo)}" data-module="{$param.module}" data-url="{$vo}" />
+				<img class="md-image-pics layui-show" width="100%" height="auto" src="{:mao_url_img($vo,1)}" data-module="{$param.module}" data-url="{$vo}" />
 				<ul class="md-image-btns layui-hide">
 					{if$param.module=='vod'}
 					<li class="layui-col-xs6 md-image-edit"><a data-type="{$param.module}_pic" lay-submit lay-filter="append" class="layui-btn layui-btn-sm layui-btn-fluid">添加图片</a></li>
