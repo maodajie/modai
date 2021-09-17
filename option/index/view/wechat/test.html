@@ -1,0 +1,33 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-tab md-option-wrap">
+	{include file="wechat/navbar"}
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form" autocomplete="off">
+				<table class="layui-table" style="margin-top:0">
+					<colgroup>
+						<col width="100">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<td>
+								{if$user.user_id>0}
+								<a href="{:url('wechat/logout')}" class="layui-btn">退出登录</a>
+								{else}
+								<a data-url="{:url('wechat/login',['uid'=>$param.uid])}" lay-submit lay-filter="test" class="layui-btn" href="javascript:;">点击登录</a>
+								{/if}
+							</td>
+							<td><img src="{:mac_url_img($user.user_portrait)}" width="40" height="40">&nbsp;&nbsp;{$user.user_nick_name|mac_default=$user.user_name}</td>
+						</tr>
+						<!-- <tr>
+							<td colspan="2">模板如需接入关注公众号登录功能,请联系QQ1570457334(30元/次)</td>
+						</tr> -->
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+{/block}

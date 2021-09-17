@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>会员登录</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<link rel="stylesheet" type="text/css" href="{$damupo.config.path}{$damupo.config.base}/style/modai.css?ver={$damupo.config.ver}" />
+</head>
+<body class="md-chat-wrap">
+<div class="md-chat-main">
+	<div class="md-chat-item">
+		<span class="md-chat-name">微信扫码登录</span>
+		<div class="md-chat-pics">
+			<img width="100%" height="100%" src="{$data.qrcode}">
+		</div>
+		<div class="md-chat-tips">
+			<p><img style="vertical-align:text-top" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM1SURBVDhP1ZFbSFRRGIUH7C3ooSjoqR56KAwqJiGyLCgzC0KrMavJrCwvaQ9CgU0iWk6omSlkeam8pCQFCQU9REKEYoEhkabl5DS3c+Zc53LmotPMap/dqRiSLtBLHyz2WXv//+I/e+v+T7pjJQt6Amf0HZ6SHXeDRSlEy7Sjv6OVyUvsCBTc6fAWsl2B0+idLcHdcDHuePLDHUrRINk3aqW/5wZz7ESnUhC6jzPoCRWiXTyJNiGPqtOXj75YMfpQgnbPyf46xjhfa5ubFv5oRnckH7f9eWh0GHFx4gBa+Fzc5HLRKhxD3fQhXJ7Kpt/3UIRm9shjrfVn2jwnFjYxh623lFzclnOws3cTEoqXw/QmE+1SDm7yRqyqX4Ml5SvRYD+IG5wRXdHjuMbsN2gR8TQ4s+qamCw0OrNIcTbyn6diY9t6mKcycZ09QLWvPwU7ejeg1rGbKB0twWxSb3ikRcRTZ894c9WegXpbBq4QNTF70cztR4Mjk+5dtWWikd2DBjYdfawJr6UnsPnHwfg+zoTD4eeRSMTs8/lWaXE63WXLroe1tt2omd6FGqsqMgWR+q2u5ulUuo6KT/E5CGAWCCufMROMEPOVGQIJPUcDzZZtSdUftgVq7GkwW1LjVG3ZjsqpzRgVngEkTJJkfLLZQJrh9/shShL1JI8Gk73TNLRqcktNo5KGqg9b42SaXI+uT6WY8atTzGJweBjnKyvhcDoRjUbxYmgIpqoqOF0u6iVZ5mmgAbqEionkB9X2FFRMJn/X2fHVGHB2IuwFvF4v7A4HXo2MQBBFOqXNbqdeJF72eNQ1RgO/Uf4uabxW3oxLjo0ws8m44EzEoK8HQTlKQ9QmRVHor87leUH4EVj2fu3isrF1TPn7pFrTmN5wflxfXTq2orXfWv9wNgRwPA9OEOYWOfOSiVm326fF6XQVbzcsLJvQr9RsHKTwpXrpLMfNKTeRipvnL2otv8ZqtS7lJWkoSpoCoRBEWYZAftND7lUJBuEjL85wXLNW/mcYDIYEXhRPkbsaYHjexbCsTF7b4mKYQZkEu1wuvVb698Risfnk1ReRgeepnoSlO93uZHr4b9HpvgAXzs8PlzA+ywAAAABJRU5ErkJggg==">&nbsp;<span>微信扫码</span></p>
+			<p>扫码关注公众号登录注册</p>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var magic = {
+		'root': '{$damupo.config.root}',
+		'path': '{$damupo.config.path}',
+		'base': '{$damupo.config.base}',
+		'admin': '{$damupo.config.admin}',
+		'index': '{$damupo.config.index}',
+		'scene': '{$data.scene}',
+	};
+</script>
+<script src="{$damupo.config.path}{$damupo.config.base}/layui/layui.js?ver={$damupo.config.ver}" type="text/javascript" charset="utf-8"></script>
+<script src="{$damupo.config.path}{$damupo.config.base}/script/modai.js?ver={$damupo.config.ver}" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

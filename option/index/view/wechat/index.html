@@ -1,0 +1,53 @@
+{extend name="index/index"}
+{block name="body"}
+<div class="layui-tab md-option-wrap">
+	{include file="wechat/navbar"}
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">
+			<form class="layui-form" autocomplete="off">
+				<table class="layui-table" style="margin-top:0">
+					<colgroup>
+						<col width="87">
+						<col width="500">
+						<col width="150">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>内容</th>
+							<th>操作</th>
+							<th>备注</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>URL</td>
+							<td><input name="wechat[dev][url]" type="text" class="layui-input" value="{:request()->domain()}{:url('wechat/api')}" placeholder="消息推送接口" readonly></td>
+							<td>消息推送接口</td>
+						</tr>
+						<tr>
+							<td>TOKEN</td>
+							<td><input name="wechat[dev][token]" type="text" class="layui-input" value="{$damupo.wechat.dev.token}" placeholder="TOKEN"></td>
+							<td>自定义通信密码</td>
+						</tr>
+						<tr>
+							<td>APPID</td>
+							<td><input name="wechat[dev][appid]" type="text" class="layui-input" value="{$damupo.wechat.dev.appid}" placeholder="APPID"></td>
+							<td>开发者APPID</td>
+						</tr>
+						<tr>
+							<td>APPSECRET</td>
+							<td><input name="wechat[dev][appsecret]" type="text" class="layui-input" value="{$damupo.wechat.dev.appsecret}" placeholder="APPSECRET"></td>
+							<td>开发者APPSECRET</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="layui-form-item">
+					<a data-url="{:url('option/save')}" lay-submit lay-filter="submit" class="layui-btn">保存设置</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{/block}

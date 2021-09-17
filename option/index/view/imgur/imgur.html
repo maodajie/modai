@@ -1,0 +1,25 @@
+<div class="layui-form-item upload_mode mode_Imgur" {neq name="$config.upload.mode" value="Imgur" }style="display:none" {/neq}>
+	<label class="layui-form-label">Imgur-API：</label>
+	<div class="layui-input-block">
+		<a href="https://api.imgur.com/oauth2/addclient" target="_blank" class="layui-btn layui-btn-primary">点击申请 https://api.imgur.com/3/image</a>
+	</div>
+</div>
+<div class="layui-form-item upload_mode mode_Imgur" {neq name="$config.upload.mode" value="Imgur" }style="display:none" {/neq}>
+	<label class="layui-form-label">Client-ID：</label>
+	<div class="layui-input-inline w200">
+		<input type="text" name="upload[api][imgur][clientid]" placeholder="Client-ID" value="{$config.upload.api.imgur.clientid}" class="layui-input">
+	</div>
+	<label class="layui-form-label">图片缓存接口：</label>
+	<div class="layui-input-inline w200">
+		<select class="w150" name="upload[api][imgur][url]">
+			<option value="" {eq name="$config.upload.api.imgur.url" value="" }selected{/eq}>关闭</option>
+			<option value="https://img.noobzone.ru/getimg.php?url=" {eq name="$config.upload.api.imgur.url" value="https://img.noobzone.ru/getimg.php?url=" }selected {/eq}>https://img.noobzone.ru/getimg.php?url=</option>
+			<option value="https://pic1.xuehuaimg.com/proxy/" {eq name="$config.upload.api.imgur.url" value="https://pic1.xuehuaimg.com/proxy/" }selected {/eq}>https://pic1.xuehuaimg.com/proxy/</option>
+			<option value="https://images.weserv.nl/?url=" {eq name="$config.upload.api.imgur.url" value="https://images.weserv.nl/?url=" }selected {/eq}>https://images.weserv.nl/?url=</option>
+		</select>
+	</div>
+	<label class="layui-form-label">代理服务器：</label>
+	<div class="layui-input-inline w200">
+		<input type="text" name="upload[api][imgur][proxy]" placeholder="不懂留空就好" value="{$config.upload.api.imgur.proxy}" class="layui-input">
+	</div>
+</div>

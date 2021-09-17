@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'mail' => [
-        'smtp' => [],
-        'tpl' => [],
+    'sign' => [
+        'user_email' => '',
+        'user_pwd' => '',
     ],
     'base' => [
         'entry' => '',
@@ -18,8 +18,16 @@ return [
             'cookie' => '',
         ],
     ],
-    'sign' => [
-        'user_email' => '',
-        'user_pwd' => '',
+    'mail' => [
+        'smtp' => [],
+        'tpl' => [],
+    ],
+    'wechat' => [
+        'dev' => [
+            'url' => '',
+            'token' => '',
+            'appid' => '',
+            'appsecret' => '',
+        ],
     ],
 ];

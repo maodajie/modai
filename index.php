@@ -1,6 +1,5 @@
 <?php
 /*!
- * @name:魔袋工具箱
  * @author:大橙子
  * @website:http://maodajie.com
  * @telegram:https://t.me/maccms_tools
