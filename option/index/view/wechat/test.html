@@ -8,10 +8,24 @@
 				<table class="layui-table" style="margin-top:0">
 					<colgroup>
 						<col width="100">
+						<col width="200">
+						<col width="200">
+						<col width="100">
 						<col>
 					</colgroup>
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>内容</th>
+							<th>内容</th>
+							<th>操作</th>
+							<th>备注</th>
+						</tr>
+					</thead>
 					<tbody>
 						<tr>
+							<td>登录测试</td>
+							<td colspan="2"><img src="{:mac_url_img($user.user_portrait)}" width="40" height="40">&nbsp;&nbsp;{$user.user_nick_name|mac_default=$user.user_name}</td>
 							<td>
 								{if$user.user_id>0}
 								<a href="{:url('wechat/logout')}" class="layui-btn">退出登录</a>
@@ -19,10 +33,36 @@
 								<a data-url="{:url('wechat/login',['uid'=>$param.uid])}" lay-submit lay-filter="test" class="layui-btn" href="javascript:;">点击登录</a>
 								{/if}
 							</td>
-							<td><img src="{:mac_url_img($user.user_portrait)}" width="40" height="40">&nbsp;&nbsp;{$user.user_nick_name|mac_default=$user.user_name}</td>
+							<td>登录测试</td>
+						</tr>
+						<tr>
+							<td>网络检测</td>
+							<td>
+								<select name="check">
+									<option value="DEFAULT">自动选择</option>
+									<option value="CHINANET">电信出口</option>
+									<option value="UNICOM">联通出口</option>
+									<option value="CAP">腾讯出口</option>
+								</select>
+							</td>
+							<td>
+								<select name="action">
+									<option value="all">ALL</option>
+									<option value="dns">DNS</option>
+									<option value="ping">Ping</option>
+								</select>
+							</td>
+							<td><a data-url="{:url('wechat/ping')}" lay-submit lay-filter="ping" class="layui-btn">开始检测</a></td>
+							<td>排查回调连接失败的问题</td>
+						</tr>
+						<tr>
+							<td>模拟验证</td>
+							<td colspan="2"><input type="text" class="layui-input" value="{$data.url}" placeholder="模拟验证" readonly></td>
+							<td><a href="{$data.url}" class="layui-btn" target="_blank">开始模拟</a></td>
+							<td>输出32位字符即为正确</td>
 						</tr>
 						<!-- <tr>
-							<td colspan="2">模板如需接入关注公众号登录功能,请联系QQ1570457334(30元/次)</td>
+							<td colspan="4">模板如需接入关注公众号登录功能,请联系QQ1570457334(30元/次)</td>
 						</tr> -->
 					</tbody>
 				</table>

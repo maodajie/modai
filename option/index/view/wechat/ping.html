@@ -1,0 +1,25 @@
+{extend name="index/index"}
+{block name="body"}
+{volist name="$data" id="vo"}
+<table class="layui-table">
+	<thead>
+		<tr>
+			<th>{:strtoupper($key)}</th>
+			<th>运营商</th>
+			<th>丢包率</th>
+			<th>延时</th>
+		</tr>
+	</thead>
+	<tbody>
+		{volist name="$vo" id="sub"}
+		<tr>
+			<td>{$sub.ip}</td>
+			<td>{$sub.real_operator}{$sub.from_operator}</td>
+			<td>{$sub.package_loss}</td>
+			<td>{$sub.time}</td>
+		</tr>
+		{/volist}
+	</tbody>
+</table>
+{/volist}
+{/block}
