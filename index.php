@@ -13,6 +13,6 @@ header('Content-Type:text/html;charset=utf-8');
 // 定义应用目录
 define('ROOT_PATH', dirname(__FILE__, 3) . '/');
 define('CONF_PATH', dirname(__FILE__, 3) . '/application/');
-define('APP_PATH', dirname(__FILE__) . (is_dir(dirname(__FILE__) . '/dev/exploit/') ? '/dev/' : '/option/'));
+define('APP_PATH', dirname(__FILE__) . (is_dir(dirname(__FILE__) . '/dev/admin/') ? '/dev/' : '/option/'));
 // 加载框架引导文件
 require dirname(__FILE__, 3) . '/thinkphp/start.php';
