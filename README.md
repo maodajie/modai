@@ -17,13 +17,13 @@
 4. 点击配置后自动生成快捷菜单即可使用
 
 #### 快捷菜单
- - 魔袋工具箱,/addons/modai
+ - 魔袋工具箱,/addons/modai/index.php
 
 #### 常见问题
 1. 未生成快捷菜单请手动添加
-   - 魔袋工具箱,/addons/[文件夹名称]
-   - 魔袋工具箱,/addons/modai-mian
-   - 魔袋工具箱,/addons/modai
+   - 魔袋工具箱,/addons/[文件夹名称]/index.php
+   - 魔袋工具箱,/addons/modai-mian/index.php
+   - 魔袋工具箱,/addons/modai/index.php
 2. 打开插件显示404解决办法
    - 下载苹果cms完整包,复制粘贴vendor文件夹
 3. 显示致命错误...addons\__()
